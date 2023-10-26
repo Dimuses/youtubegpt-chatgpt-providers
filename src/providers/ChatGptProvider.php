@@ -53,7 +53,6 @@ class ChatGptProvider extends AiAbstractProvider
 
         $gptAnswer = $this->api->sendChat($messageList);
         $gptAnswer = json_decode($gptAnswer);
-        print_r($gptAnswer);
         $text = $gptAnswer?->choices[0]?->message?->content ?? '';
 
         return new Answer($text);
